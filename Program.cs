@@ -1,2 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World");
+﻿namespace tpmodul5_1302213039
+{
+    internal class Program
+    {
+        public class simpledatabase<T>
+        {
+            private List<T> storeddata;
+            private List<DateTime> inputdates;
+
+            public simpledatabase()
+            {
+                storeddata = new List<T>();
+                inputdates = new List<DateTime>();
+            }
+            public void addnewdata(T T)
+            {
+                storeddata.Add(T);
+                inputdates.Add(DateTime.Now);
+            }
+            public void printalldata()
+            {
+                for (int i = 0; i < storeddata.Count; i++)
+                {
+                    Console.WriteLine("Data " + (i + 1) + " berisi: " + storeddata[i] + " yang disimpan pada waktu "
+                        + inputdates[i]);
+                }
+            }
+        }
+
+        static void Main(String[] args)
+        {
+            simpledatabase<long> outputan = new simpledatabase<long>();
+            outputan.addnewdata(13);
+            outputan.addnewdata(02);
+            outputan.addnewdata(21);
+            outputan.printalldata();
+        }
+    }
+}
